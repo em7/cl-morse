@@ -1,0 +1,30 @@
+System definition:
+
+https://lispcookbook.github.io/cl-cookbook/systems.html
+
+
+To load:
+
+open load.lsp and C-c C-k
+
+or put it to ~\quicklisp\local-projects\cl-morse and use (ql:quickload "cl-morse")
+(ql:register-local-projects) to regenerate local project index
+
+
+
+Testing, coverage
+
+; sbcl
+(require :sb-cover)
+(declaim (optimize (sb-cover:store-coverage-data)))
+(asdf:oos 'asdf:load-op :cl-morse :force t)
+(asdf:test-system :cl-morse)
+(sb-cover:report "coverage/")
+(declaim (optimize (sb-cover:store-coverage-data 0)))
+
+; ccl
+(setq ccl:*compile-code-coverage* t)
+(asdf:oos 'asdf:load-op :cl-morse :force t)
+(asdf:test-system :cl-morse)
+(report-coverage "c:/tmp/report.html")
+(setq ccl:*compile-code-coverage* nil)
