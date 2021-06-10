@@ -116,7 +116,9 @@ Offers a restart 'skip-character which ignorese the character and returns an emp
 
 
 (defun morse->string (morsestr &key (skip-unknown-chars))
-  "Converts the string with morse code to string with alpha characters."
+  "Converts the string with morse code to string with alpha characters. If :skip-unknown-chars is true,
+ignores characters which cannot be converted to a alpha. Otherwise signals
+'unknown-character condition with unknown-ch reader to get the unknown character."
   (handler-bind ((unknown-character #'(lambda (c)
                                         (declare (ignore c))
                                         (when skip-unknown-chars
