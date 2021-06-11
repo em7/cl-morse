@@ -37,9 +37,10 @@ otherwise you can clone the repo wherever ASDF finds it and load it.
 
 ### Running
 
-Package `cl-morse` exports three symbols:
+Package `cl-morse` exports four symbols:
 
 - condition `unknown-character`
+- restart `skip-character`
 - function `string->morse`
 - function `morse->string`
 
