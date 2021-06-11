@@ -23,6 +23,7 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
+          - abcl-bin
           
     env:
       LISP: ${{ matrix.lisp }}
