@@ -55,7 +55,7 @@ The `'unknown-character` condition defines `:report` and has a reader `unknown-c
 
 see `tests/main.lisp`
 
-```
+```lisp
 (cl-morse:morse->string ".-/-.../")
 > "ab"
 
