@@ -127,6 +127,3 @@ ignores characters which cannot be converted to a alpha. Otherwise signals
            (conv-list (mapcar #'morse->char tokens)))
       (apply 'concatenate 'string conv-list))))
 
-
-
-;; blah blah blah.
