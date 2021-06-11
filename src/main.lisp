@@ -1,6 +1,7 @@
 (defpackage cl-morse
   (:use :cl :cl-ppcre)
   (:export :unknown-character
+           :skip-character
            :string->morse         
            :morse->string))
 (in-package :cl-morse)
@@ -84,7 +85,7 @@ an empty string."
 (defun string->morse (str &key (skip-unknown-chars))
   "Converts the string to a morse code. If :skip-unknown-chars is true,
 ignores characters which cannot be converted to a morse code. Otherwise signals
-'unknown-character condition with unknown-ch reader to get the unknown character."
+'unknown-character condition with unknown-ch reader to get the unknown character. A restart 'skip-character is provided in case you want to e.g. log the characters but skip them."
   (handler-bind ((unknown-character #'(lambda (c)
                                         (declare (ignore c))
                                         (when skip-unknown-chars 
@@ -118,7 +119,7 @@ Offers a restart 'skip-character which ignorese the character and returns an emp
 (defun morse->string (morsestr &key (skip-unknown-chars))
   "Converts the string with morse code to string with alpha characters. If :skip-unknown-chars is true,
 ignores characters which cannot be converted to a alpha. Otherwise signals
-'unknown-character condition with unknown-ch reader to get the unknown character."
+'unknown-character condition with unknown-ch reader to get the unknown character. A restart 'skip-character is provided in case you want to e.g. log the characters but skip them."
   (handler-bind ((unknown-character #'(lambda (c)
                                         (declare (ignore c))
                                         (when skip-unknown-chars
