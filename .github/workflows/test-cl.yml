@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Unit tests ABCL/CCL/SBCL
+name: Unit tests ABCL/CCL/ECL/SBCL
 
 # Controls when the action will run. 
 on:
@@ -23,6 +23,7 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
+          - ecl-bin
           - abcl-bin
           
     env:
