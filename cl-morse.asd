@@ -13,6 +13,7 @@
   :author "em7"
   :license "BSD-3clause"
   :depends-on ("cl-morse"
+               "dissect"
                "rove")
   :components ((:module "tests"
                 :components
