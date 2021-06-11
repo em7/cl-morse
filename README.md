@@ -1,4 +1,7 @@
 # cl-morse
+
+![unit tests](https://github.com/em7/cl-morse/actions/workflows/test-cl.yml/badge.svg)
+
 Morse code translation lib written in Common Lisp.
 
 In version 0.1.0 only letters, spaces and a full stop are supported, more to come. Give me a shout or open an issue if you want to add a new feture to this library, please. Originally this library was created because I was a bit rusty at Common Lisp programming (haven't touched it for years of using Clojure) and to have something to check and try various forms of deployment.
