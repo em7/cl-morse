@@ -23,7 +23,7 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
-          - ecl-bin
+          - ecl
           - abcl-bin
           
     env:
