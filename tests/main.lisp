@@ -1,35 +1,48 @@
 (defpackage cl-morse/tests/main
   (:use :cl
         :cl-morse
-        :rove))
+        :fiveam))
 (in-package :cl-morse/tests/main)
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :cl-morse)' in your Lisp.
 
-(deftest string->morse-test
-  (testing "testing the whole alphabet."
-    (let* ((input "abcdefghijklmnopqrstuvwxyz. ")
-           (expected ".-/-.../-.-./-.././..-./--./..../../.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--..////"))
-      (ok (equal expected (cl-morse:string->morse input))
-          "The result should be the whole alphabet concatenated.")))
-  (testing "signals on unknown character"
-    (ok (signals (cl-morse:string->morse "+--") 'cl-morse:unknown-character)))
-  (testing "skips unknown characters when using restart"
-    (let* ((input "a+b")
-           (expected ".-/-.../"))
-      (ok (equal expected (cl-morse:string->morse input :skip-unknown-chars t))))))
+(def-suite all-tests)
 
-(deftest morse->string-test
-  (testing "testing the whole alphabet."
-    (let* ((input ".-/-.../-.-./-.././..-./--./..../../.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--..////")
-           (expected "abcdefghijklmnopqrstuvwxyz. "))
-      (ok (equal expected (cl-morse:morse->string input)))))
-  (testing "signals on unknown character"
-    (ok (signals (cl-morse:morse->string ".-/....../-.../") 'cl-morse:unknown-character)))
-  (testing "skips unknown characters when using restart"
-    (let* ((input ".-/....../-.../")
-           (expected "ab"))
-      (ok (equal expected (cl-morse:morse->string input :skip-unknown-chars t))))))
+(in-suite all-tests)
 
-;; run tests on compile file / C-c C-k
-(run-suite *package*)
+(test string->morse-test-whole-alphabet-test
+  "testing the whole alphabet."
+  (let* ((input "abcdefghijklmnopqrstuvwxyz. ")
+         (expected ".-/-.../-.-./-.././..-./--./..../../.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--..////"))
+    (is (equal expected (cl-morse:string->morse input))
+        "The result should be the whole alphabet concatenated.")))
+
+(test string->morse-signal-unknown-test
+  "signals on unknown character"
+  (signals cl-morse:unknown-character
+      (cl-morse:string->morse "+--") ))
+
+(test string->morse-skip-unknown-using-restart-test
+  "skips unknown characters when using restart"
+  (let* ((input "a+b")
+         (expected ".-/-.../"))
+    (is (equal expected (cl-morse:string->morse input :skip-unknown-chars t)))))
+
+(test morse->string-test-whole-alphabet-test
+  "testing the whole alphabet."
+  (let* ((input ".-/-.../-.-./-.././..-./--./..../../.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--..////")
+         (expected "abcdefghijklmnopqrstuvwxyz. "))
+    (is (equal expected (cl-morse:morse->string input)))))
+
+(test morse->string-signal-unknown-character-test
+  "signals on unknown character"
+  (signals cl-morse:unknown-character
+    (cl-morse:morse->string ".-/....../-.../")))
+
+(test morse->string-skip-unknown-using-restart-test
+  "skips unknown characters when using restart"
+  (let* ((input ".-/....../-.../")
+         (expected "ab"))
+    (is (equal expected (cl-morse:morse->string input :skip-unknown-chars t)))))
+
+

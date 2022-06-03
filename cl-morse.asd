@@ -13,10 +13,12 @@
   :author "em7"
   :license "BSD-3clause"
   :depends-on ("cl-morse"
-               "dissect"
-               "rove")
+               "fiveam")
   :components ((:module "tests"
                 :components
                 ((:file "main"))))
   :description "Test system for cl-morse"
-  :perform (test-op (op c) (symbol-call :rove :run c)))
+  :perform (test-op (o s)
+                    (uiop:symbol-call :fiveam '#:run!
+                                      (uiop:find-symbol* '#:all-tests
+                                                         '#:cl-morse/tests/main))))
