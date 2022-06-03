@@ -6,7 +6,7 @@
   :components ((:module "src"
                 :components
                 ((:file "main"))))
-  :description ""
+  :description "Library for translating ASCII letters to morse code and back."
   :in-order-to ((test-op (test-op "cl-morse/tests"))))
 
 (defsystem "cl-morse/tests"
