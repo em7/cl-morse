@@ -36,7 +36,7 @@ otherwise you can clone the repo wherever ASDF finds it and load it.
 ### Dependencies
 
 - cl-ppcre (is on quicklisp)
-- fiveA? (testing, is on quicklisp)
+- fiveAM (testing, is on quicklisp)
 
 ### Running
 
