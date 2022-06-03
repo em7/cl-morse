@@ -24,7 +24,7 @@ jobs:
           - sbcl-bin
           - ccl-bin
           - ecl
-          - abcl-bin
+          # - abcl-bin # Failing on Roswell
           
     env:
       LISP: ${{ matrix.lisp }}
