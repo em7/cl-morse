@@ -1,5 +1,5 @@
 (defsystem "cl-morse"
-  :version "0.1.0"
+  :version "1.0.0"
   :author "em7"
   :license "BSD-3clause"
   :depends-on ("cl-ppcre")
