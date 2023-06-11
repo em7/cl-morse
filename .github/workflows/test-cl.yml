@@ -23,8 +23,8 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
-          - ecl
-          # - abcl-bin # Failing on Roswell
+          # - ecl # Failing on Roswell
+          - abcl-bin # Failing on Roswell
           
     env:
       LISP: ${{ matrix.lisp }}
