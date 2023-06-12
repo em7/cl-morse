@@ -24,7 +24,7 @@ jobs:
           - sbcl-bin
           - ccl-bin
           - ecl
-          - abcl-bin
+          # - abcl-bin # Fails to install
           
     env:
       LISP: ${{ matrix.lisp }}
