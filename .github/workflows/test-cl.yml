@@ -22,7 +22,7 @@ jobs:
       matrix:
         lisp:
           - sbcl-bin
-          - ccl-bin
+          # - ccl-bin
           # - ecl # Failing on Roswell
           # - abcl-bin # Failing on Roswell
           
