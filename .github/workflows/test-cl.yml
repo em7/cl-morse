@@ -23,7 +23,9 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
-          - ecl
+          - clasp-bin
+          - cmu-bin
+          # - ecl # Fails to install
           # - abcl-bin # Fails to install
           
     env:
