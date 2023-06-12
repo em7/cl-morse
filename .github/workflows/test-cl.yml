@@ -23,7 +23,7 @@ jobs:
         lisp:
           - sbcl-bin
           - ccl-bin
-          - clasp-bin
+          # - clasp-bin # LLVM library is missing from ubuntu-latest?
           - cmu-bin
           # - ecl # Fails to install
           # - abcl-bin # Fails to install
