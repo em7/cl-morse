@@ -22,9 +22,9 @@ jobs:
       matrix:
         lisp:
           - sbcl-bin
-          # - ccl-bin
-          # - ecl # Failing on Roswell
-          # - abcl-bin # Failing on Roswell
+          - ccl-bin
+          - ecl
+          - abcl-bin
           
     env:
       LISP: ${{ matrix.lisp }}
@@ -36,7 +36,7 @@ jobs:
           asdf-system: cl-morse
       - name: Run tests manually, the automatic fails with installation of cl-coveralls
         run: ros run -s cl-morse -e "(asdf:test-system :cl-morse)" -q
-      #- uses: 40ants/run-tests@v2
+      #- uses: 40ants/run-tests@v2 # TODO why this fails??
       #  with:
       #    asdf-system: cl-morse
       
