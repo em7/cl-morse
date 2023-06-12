@@ -31,11 +31,11 @@ jobs:
       
     steps:
       - uses: actions/checkout@v1
-#       - uses: 40ants/setup-lisp@v1
-#         with:
-#           asdf-system: cl-morse
+      - uses: 40ants/setup-lisp@v1
+        with:
+          asdf-system: cl-morse
       - name: Run tests manually, the automatic fails with installation of cl-coveralls
-        run: ls
+        run: ros run -s cl-morse -e "(asdf:test-system :cl-morse)" -q
       #- uses: 40ants/run-tests@v2
       #  with:
       #    asdf-system: cl-morse
