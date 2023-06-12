@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         lisp:
-          - sbcl
+          - sbcl-bin
           # - ccl-bin
           # - ecl # Failing on Roswell
           # - abcl-bin # Failing on Roswell
