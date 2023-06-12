@@ -22,7 +22,7 @@ jobs:
       matrix:
         lisp:
           - sbcl-bin
-          - ccl-bin
+          # - ccl-bin # Takes too long to run (more than 10 minutes)
           # - clasp-bin # LLVM library is missing from ubuntu-latest?
           # - cmu-bin # Fails to install
           # - ecl # Fails to install
