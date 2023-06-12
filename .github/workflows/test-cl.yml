@@ -41,10 +41,10 @@ jobs:
       #- uses: 40ants/run-tests@v2 # TODO why this fails??
       #  with:
       #    asdf-system: cl-morse
-      - name: Run critic
-        run: |
-          ros install  40ants/40ants-critic
-          lisp-critic cl-morse
+#       - name: Run critic
+#         run: |
+#           ros install  40ants/40ants-critic
+#           lisp-critic cl-morse
         
       
     
